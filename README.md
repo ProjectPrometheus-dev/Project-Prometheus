@@ -3,4 +3,4 @@ Project Prometheus is a DeFi token launched on the BSC network. Project Promethe
 
 ProjectPrometheus.sol is the main contract on which the token runs
 
-PrometheusInterest.sol is the Interest Locker module used by the developer team to generate funding for the project.
+PrometheusInterest.sol is the Interest Locker module which functions as a developer redistribution farm and has been created to fund the project.
