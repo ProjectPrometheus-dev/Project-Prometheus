@@ -1,6 +1,6 @@
 # Project-Prometheus
-Project Prometheus is a DeFi token launched on the BSC network. Project Prometheus's protocol is built on RFI tokenomics with an added burn function which burns a certain amount of tokens with each transaction similarly to the RFI mechanics.
+Project Prometheus is a DeFi token launched on the BSC network. Our protocol is based on RFI tokenomics, with an added burn function that burns tokens on each transaction. 
 
-ProjectPrometheus.sol is the main contract on which the token runs
+ProjectPrometheus.sol is the main contract on which the token runs.
 
-PrometheusInterest.sol is the Interest Locker module which functions as a developer redistribution farm and has been created to fund the project.
+PrometheusInterest.sol is the Interest Locker module, it functions as a developer redistribution farm with the purpose of funding the project.
