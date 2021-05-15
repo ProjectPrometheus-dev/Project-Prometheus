@@ -30,9 +30,7 @@ contract InterestLocker {
     function initiate() onlyOwner external {
         IERC20 Token = IERC20(token);
         
-        uint256 tokenBalance = Token.balanceOf(address(this));
-        
-        lockedAmount = tokenBalance;
+        lockedAmount = Token.balanceOf(address(this));
     }
     
     function transferOwnership(address newOwner) onlyOwner external {
@@ -46,7 +44,7 @@ contract InterestLocker {
         
         lockedAmount -= amount;
         
-        Token.transfer(address(1), amount);
+        Token.transfer(address(0), amount);
     }
     
     function withdraw(address recipient) onlyOwner external {
