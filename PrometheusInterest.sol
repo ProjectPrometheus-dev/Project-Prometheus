@@ -1,4 +1,4 @@
-pragma solidity ^0.6.12;
+pragma solidity ^0.8.0;
 
 interface IERC20 {
     function totalSupply() external view returns (uint256);
@@ -16,10 +16,14 @@ contract InterestLocker {
     address public token;
     address public owner;
     uint256 public lockedAmount;
+
+	IERC20 Token;
     
     constructor (address _owner, address _token) public {
         owner = _owner;
         token = _token;
+
+		Token = IERC20(token);
     }
     
     modifier onlyOwner {
@@ -28,8 +32,6 @@ contract InterestLocker {
     }
     
     function initiate() onlyOwner external {
-        IERC20 Token = IERC20(token);
-        
         lockedAmount = Token.balanceOf(address(this));
     }
     
@@ -40,16 +42,12 @@ contract InterestLocker {
     function burnFromLocker(uint256 amount) onlyOwner external {
         require(amount <= lockedAmount, "Given amount exceeds locker balance.");
         
-        IERC20 Token = IERC20(token);
-        
         lockedAmount -= amount;
         
         Token.transfer(address(0), amount);
     }
     
-    function withdraw(address recipient) onlyOwner external {
-        IERC20 Token = IERC20(token);
-        
+    function withdraw(address recipient) onlyOwner external {        
         uint256 tokenBalance = Token.balanceOf(address(this));
         
         uint256 transferAmount = tokenBalance - lockedAmount;
